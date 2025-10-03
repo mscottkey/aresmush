@@ -43,11 +43,7 @@ module AresMUSH
     end
     
     def self.achievements_list(char)
-      data = {}
-
-      char.achievements.each do |a|
-        data[a.name] = { count: 1, type: a.type, message: a.message }
-      end
+      data = {}      
 
       if (char.is_playerbit?)
         alts = AresCentral.alts(char)
@@ -62,6 +58,10 @@ module AresMUSH
               data[a.name] = { count: 1, type: a.type, message: a.message }
             end
           end
+        end
+      else 
+        char.achievements.each do |a|
+          data[a.name] = { count: 1, type: a.type, message: a.message }
         end
       end
       data.sort_by { |name, data| [ data[:type], data[:message] ] }
