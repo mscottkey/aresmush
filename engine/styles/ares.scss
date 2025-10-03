@@ -2791,6 +2791,12 @@ LOCATIONS SCREEN
   margin: 0px;
 }
 
+.location-legend {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
 .location-buttons {
   align-self: center;
   margin: 10px;
